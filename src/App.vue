@@ -1,26 +1,51 @@
-<template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-</template>
+<script setup>
+import { ref, computed } from 'vue'
+import Home from './components/pages/Home.vue'
+import Login from './components/pages/Login.vue'
+import Register from './components/pages/Register.vue'
+import Nav from './components/header/Nav.vue'
+import About from './components/pages/About.vue'
+import Contact from './components/pages/Contact.vue'
+// import Landing from './components/pages/Landing.vue'
+import Profile from './components/pages/Profile.vue'
+import Shoe from './components/pages/Shoe.vue'
+import Footer from './components/footer/Footer.vue'
+import Forgotpassword from './components/pages/Forgotpassword.vue'
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+const routes = {
+  // '/': Landing,
+  '/login': Login,
+  '/register': Register,
+  '/about': About,
+  '/contact': Contact,
+  '/': Home,
+  '/profile': Profile,
+  '/shoe': Shoe,
+  '/forgot-password': Forgotpassword
 }
+let currentRoute = window.location.pathname;
+// eslint-disable-next-line no-empty
+if (currentRoute === "/"){
+}
+
+const currentPath = ref(window.location.hash)
+
+window.addEventListener('hashchange', () => {
+  currentPath.value = window.location.hash
+})
+
+const currentView = computed(() => {
+  // eslint-disable-next-line no-undef
+  return routes[currentPath.value.slice(1) || '/'] || NotFound
+})
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<template>
+  <!-- <a href="#/">Home</a> |
+  <a href="#/login">Login</a> |
+  <a href="#/register">Register</a> -->
+  <Nav />
+  <component :is="currentView" />
+
+  <Footer />
+</template>
