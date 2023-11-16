@@ -110,7 +110,7 @@ export default {
   },
   methods: {
     login() {
-      axios.post('https://go-server-ztgk.onrender.com/login', { // Update the URL here
+      axios.post('https://ocalhost:8080/login', { // Update the URL here
         email: this.email,
         password: this.password
       }, {
