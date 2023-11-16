@@ -110,7 +110,7 @@ export default {
   },
   methods: {
     login() {
-      axios.post('https://localhost:8080/login', { // Update the URL here
+      axios.post('http://localhost:8080/login', { // Update the URL here
         email: this.email,
         password: this.password
       }, {
