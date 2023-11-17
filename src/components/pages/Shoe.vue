@@ -41,8 +41,8 @@
       </div>
     </Modal>
 
-     <!-- Update Shoe Modal -->
-     <Modal v-if="isUpdateModalOpen" @close="closeUpdateModal">
+    <!-- Update Shoe Modal -->
+    <Modal v-if="isUpdateModalOpen" @close="closeUpdateModal">
       <!-- Content of the modal goes here -->
       <div class="card">
         <form @submit.prevent="updateShoe">
@@ -85,48 +85,51 @@
     </Modal>
 
     <section class="food_section layout_padding">
-    <div class="container">
-      <div class="heading_container heading_center">
-        <h2>
-          Our Shoes
-        </h2>
-      </div>
+      <div class="container">
+        <div class="heading_container heading_center">
+          <h2>
+            Our Shoes
+          </h2>
+        </div>
 
-      <ul class="filters_menu">
-        <li class="active" data-filter="*">All</li>
-        <li data-filter=".burger"><b-button @click="openModal">Create Shoe</b-button></li>
-      </ul>
+        <ul class="filters_menu">
+          <li class="active" data-filter="*">All</li>
+          <li data-filter=".burger"><b-button @click="openModal">Create Shoe</b-button></li>
+        </ul>
 
-      <div class="filters-content">
-        <div class="row grid">
-          <div class="col-sm-6 col-lg-4 all pizza" v-for="shoe in shoes" :key="shoe.id">
-            <div class="box">
-              <div>
-                <div class="img-box">
-                  <img :src="'https://images.pexels.com/photos/1456733/pexels-photo-1456733.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'" alt="Shoe Image" class="shoe-image">
-                </div>
-                <div class="detail-box">
-                  <h5>
-                    {{ shoe.model }}
-                    {{ shoe.brand }}
-                  </h5>
-                  <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+        <div class="filters-content">
+          <div class="row grid">
+            <div class="col-sm-6 col-lg-4 all pizza" v-for="shoe in shoes" :key="shoe.id">
+              <div class="box">
+                <div>
+                  <div class="img-box">
+                    <img
+                      :src="'https://images.pexels.com/photos/1456733/pexels-photo-1456733.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'"
+                      alt="Shoe Image" class="shoe-image">
+                  </div>
+                  <div class="detail-box">
+                    <h5>
+                      {{ shoe.model }}
+                      {{ shoe.brand }}
+                    </h5>
+                    <p>
+                      Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus
+                      sed eaque
                     </p>
                     <p>Size: {{ shoe.size }} , Color: {{ shoe.color }}</p>
-                  <div class="options">
+                    <div class="options">
                       <p>Price: ${{ shoe.price }}</p>
+                    </div>
+                    <button @click="confirmDelete(shoe.id)" class="delete">Delete</button>
+                    <button @click="openUpdateModal(shoe)">Update</button>
                   </div>
-                  <button @click="confirmDelete(shoe.id)" class="delete">Delete</button>
-                      <button @click="openUpdateModal(shoe)">Update</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        </div>
-        </div>
-  </section>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -317,120 +320,120 @@ export default {
 
 
 <style scoped>
-  /* Add your modal styles here */
-  .modal {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 9999;
-    background-color: rgba(0, 0, 0, 0.4);
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-  }
+/* Add your modal styles here */
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
 
-  .modal-create-shoe {
-    z-index: 10000;
-  }
+.modal-create-shoe {
+  z-index: 10000;
+}
 
-  .modal-update-shoe {
-    z-index: 10001;
-  }
+.modal-update-shoe {
+  z-index: 10001;
+}
 
-  /* Card styles */
-  .card {
-    background-color: #fefefe;
-    margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 600px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-  }
+/* Card styles */
+.card {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
 
-  .close-button {
-    color: #aaa;
-    float: right;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    border: none;
-    background: none;
-  }
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
 
-  .close-button:hover {
-    color: black;
-  }
+.close-button:hover {
+  color: black;
+}
 
-  .form-group {
-    margin-bottom: 20px;
-  }
+.form-group {
+  margin-bottom: 20px;
+}
 
-  label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-  }
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
 
-  input {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-    margin-bottom: 8px;
-  }
+input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+}
 
-  .error-message {
-    color: red;
-    margin-top: 4px;
-  }
+.error-message {
+  color: red;
+  margin-top: 4px;
+}
 
-  button {
-    background-color: #4caf50;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    float: right;
-    margin: 0px 5px 15px 5px;
-  }
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  margin: 0px 5px 15px 5px;
+}
 
-  .delete{
-    background-color: red;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
+.delete {
+  background-color: red;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
-  button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
 
-  .loading {
-    margin-top: 10px;
-  }
+.loading {
+  margin-top: 10px;
+}
 
-  .req {
-    color: red;
-  }
+.req {
+  color: red;
+}
 
-  .heading_container {
+.heading_container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
 }
 
 .heading_container h2 {
@@ -451,20 +454,21 @@ export default {
 
 .heading_container.heading_center {
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   text-align: center;
 }
-  .food_section .filters_menu {
+
+.food_section .filters_menu {
   padding: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   list-style-type: none;
   margin: 45px 0 20px 0;
 }
@@ -497,11 +501,11 @@ export default {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   height: 215px;
   border-radius: 0 0 0 45px;
   margin: -1px;
@@ -536,8 +540,8 @@ export default {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
 .food_section .box .options a {
@@ -549,11 +553,11 @@ export default {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .food_section .box .options a svg {
@@ -564,7 +568,7 @@ export default {
 
 .food_section .box:hover .img-box img {
   -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .food_section .btn-box {
@@ -572,8 +576,8 @@ export default {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   margin-top: 45px;
 }
 
@@ -591,12 +595,15 @@ export default {
 .food_section .btn-box a:hover {
   background-color: #e69c00;
 }
+
 li[data-filter=".burger"] b-button:hover {
-    color: #fefefe; /* Replace with your desired hover color */
-    background-color: #222831; /* Replace with your desired hover background color */
-    padding: 7px 10px;
+  color: #fefefe;
+  /* Replace with your desired hover color */
+  background-color: #222831;
+  /* Replace with your desired hover background color */
+  padding: 7px 10px;
   cursor: pointer;
   border-radius: 25px;
-  }
-  /* Add more styles as needed */
-</style>
+}
+
+/* Add more styles as needed */</style>

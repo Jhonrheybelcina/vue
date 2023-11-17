@@ -2,6 +2,7 @@
 <template>
     <div class="login-form">
         <form @submit.prevent="login" class="form">
+            <h1>Login</h1>
             <div class="flex-column">
                 <label for="email">Email </label>
             </div>
@@ -291,5 +292,9 @@ export default {
     ;
 }
 
+h1{
+    text-align: center;
+    color: #151717;
+}
 
 </style>  

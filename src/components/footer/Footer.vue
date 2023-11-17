@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/valid-template-root -->
 <template>
-<footer class="footer_section">
+  <footer class="footer_section">
     <div class="container">
       <div class="row">
         <div class="col-md-4 footer-col">
@@ -36,7 +36,8 @@
               ShoeLit
             </p>
             <p>
-              Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
+              Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin
+              words, combined with
             </p>
             <div class="footer_social">
               <a href="">
@@ -71,7 +72,7 @@
       </div>
       <div class="footer-info">
         <p>
-          &copy; <span id="displayYear"></span> All Rights Reserved 
+          &copy; <span id="displayYear"></span> All Rights Reserved
           <a href="https://html.design/">2023</a><br><br>
           &copy; <span id="displayYear"></span> Distributed By
           <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
@@ -79,13 +80,12 @@
       </div>
     </div>
   </footer>
-
 </template>
 
 <script>
 export default {
-    // eslint-disable-next-line vue/multi-word-component-names
-    name: 'Footer'
+  // eslint-disable-next-line vue/multi-word-component-names
+  name: 'Footer'
 }
 
 </script>
@@ -124,8 +124,8 @@ export default {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .footer_section .footer_contact .contact_link_box a {
@@ -154,8 +154,8 @@ export default {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   margin-top: 20px;
   margin-bottom: 10px;
 }
@@ -165,11 +165,11 @@ export default {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   color: #222831;
   width: 30px;
   height: 30px;

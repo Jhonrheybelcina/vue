@@ -34,13 +34,12 @@
 
 <script>
 export default {
-    // eslint-disable-next-line vue/multi-word-component-names
-    name: 'About'
+  // eslint-disable-next-line vue/multi-word-component-names
+  name: 'About'
 }
 </script>
 
 <style scoped>
-
 .about_section {
   background: #eeeeee;
   color: black;
@@ -48,8 +47,8 @@ export default {
 
 .about_section .row {
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .about_section .img-box {
@@ -58,8 +57,8 @@ export default {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .about_section .img-box img {
@@ -90,7 +89,7 @@ export default {
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 </style>
 
